@@ -66,6 +66,11 @@ const Homescreen = (props) => {
 		return retVal;
 	}
 
+	const tpsClear = () =>
+	{
+		props.tps.clearAllTransactions();
+	}
+
 
 	// Creates a default item and passes it to the backend resolver.
 	// The return id is assigned to the item, and the item is appended
@@ -232,6 +237,7 @@ const Homescreen = (props) => {
 									editItem={editItem} reorderItem={reorderItem}
 									setShowDelete={setShowDelete}
 									activeList={activeList} setActiveList={setActiveList}
+									tpsClear={tpsClear}
 								/>
 							</div>
 						:

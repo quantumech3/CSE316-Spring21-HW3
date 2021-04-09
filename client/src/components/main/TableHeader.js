@@ -7,6 +7,14 @@ const TableHeader = (props) => {
     const buttonStyle = props.disabled ? ' table-header-button-disabled ' : 'table-header-button ';
     const clickDisabled = () => { };
 
+    const clickEnabled_Close = () =>
+    {
+        props.setActiveList({})
+
+        // Clear transaction stack when the user creates a new list
+		props.tpsClear()
+    }
+
     return (
         <WRow className="table-header">
             <WCol size="4">
@@ -29,7 +37,7 @@ const TableHeader = (props) => {
                     <WButton onClick={props.disabled ? clickDisabled : props.setShowDelete} wType="texted" className={`${buttonStyle}`}>
                         <i className="material-icons">delete_outline</i>
                     </WButton>
-                    <WButton onClick={props.disabled ? clickDisabled : () => props.setActiveList({})} wType="texted" className={`${buttonStyle}`}>
+                    <WButton onClick={props.disabled ? clickDisabled : clickEnabled_Close} wType="texted" className={`${buttonStyle}`}>
                         <i className="material-icons">close</i>
                     </WButton>
                 </div>
