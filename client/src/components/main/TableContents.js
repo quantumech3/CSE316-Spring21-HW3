@@ -11,7 +11,7 @@ const TableContents = (props) => {
         let isBottom = entries && index === entries.length - 1
 
         return <TableEntry
-                data={entry} key={entry.id}
+                data={entry} key={index}
                 deleteItem={props.deleteItem} reorderItem={props.reorderItem}
                 editItem={props.editItem} index={index}
                 isTop={isTop}
