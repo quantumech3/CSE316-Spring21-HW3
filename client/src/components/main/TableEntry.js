@@ -34,6 +34,12 @@ const TableEntry = (props) => {
         props.editItem(data._id, 'completed', newStatus, prevStatus);
     };
 
+    let onDescriptionFocus = () =>
+    {
+        props.setAddListEnabled(false)
+        toggleDescrEdit(!editingDescr)
+    }
+
     return (
         <WRow className='table-entry'>
             <WCol size="4">
@@ -43,9 +49,10 @@ const TableEntry = (props) => {
                             className='table-input' onBlur={handleDescrEdit}
                             autoFocus={true} defaultValue={description} type='text'
                             wType="outlined" barAnimation="solid" inputClass="table-input-class"
+                            
                         />
                         : <div className="table-text"
-                            onClick={() => toggleDescrEdit(!editingDescr)}
+                            onClick={onDescriptionFocus}
                         >{description}
                         </div>
                 }

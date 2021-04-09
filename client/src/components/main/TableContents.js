@@ -16,6 +16,7 @@ const TableContents = (props) => {
                 editItem={props.editItem} index={index}
                 isTop={isTop}
                 isBottom={isBottom}
+                setAddListEnabled={props.setAddListEnabled}
             />
     }
 

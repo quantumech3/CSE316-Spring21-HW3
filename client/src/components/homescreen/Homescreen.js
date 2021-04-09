@@ -25,6 +25,7 @@ const Homescreen = (props) => {
 	const [showDelete, toggleShowDelete] 	= useState(false);
 	const [showLogin, toggleShowLogin] 		= useState(false);
 	const [showCreate, toggleShowCreate] 	= useState(false);
+	const [addListEnabled, setAddListEnabled] = useState(true);
 
 	const [ReorderTodoItems] 		= useMutation(mutations.REORDER_ITEMS);
 	const [UpdateTodoItemField] 	= useMutation(mutations.UPDATE_ITEM_FIELD);
@@ -124,6 +125,9 @@ const Homescreen = (props) => {
 	};
 
 	const editItem = async (itemID, field, value, prev) => {
+		// Show add list button after an item has been edited
+		setAddListEnabled(true);
+
 		let flag = 0;
 		if (field === 'completed') flag = 1;
 		let listID = activeList._id;
@@ -241,6 +245,7 @@ const Homescreen = (props) => {
 								updateListField={updateListField}
 								tpsHasUndo={tpsHasUndo}
 								tpsHasRedo={tpsHasRedo}
+								addListEnabled={addListEnabled}
 							/>
 							:
 							<></>
@@ -257,6 +262,7 @@ const Homescreen = (props) => {
 									setShowDelete={setShowDelete}
 									activeList={activeList} setActiveList={setActiveList}
 									tpsClear={tpsClear}
+									setAddListEnabled={setAddListEnabled}
 								/>
 							</div>
 						:
