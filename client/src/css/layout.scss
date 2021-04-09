@@ -133,6 +133,8 @@ html {
 
 .signup-modal {
     width: 375px;
+    top: 100px;
+    left: 100px;
 }
 
 .modal-col-gap{
@@ -166,6 +168,7 @@ html {
 .col-spacer {
     width: 24px;
     display: inline-block;
+    z-index: 1;
 }
 
 .wsidebar {
