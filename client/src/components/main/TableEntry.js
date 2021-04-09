@@ -12,6 +12,8 @@ const TableEntry = (props) => {
     const [editingDate, toggleDateEdit] = useState(false);
     const [editingDescr, toggleDescrEdit] = useState(false);
     const [editingStatus, toggleStatusEdit] = useState(false);
+    const [editingAssignedTo, toggleAssignedToEdit] = useState(false);
+    const [assigned_to, setAssigned_to] = useState("Nobody"); // NOTE: Temporary until MongoDB integration. Remove this once mongodb is integrated
 
     const handleDateEdit = (e) => {
         toggleDateEdit(false);
@@ -26,6 +28,11 @@ const TableEntry = (props) => {
         const prevDescr = description;
         props.editItem(data._id, 'description', newDescr, prevDescr);
     };
+
+    const handleAssignedToEdit = (e) => {
+        toggleAssignedToEdit(false)
+        setAssigned_to(e.target.value)
+    }
 
     const handleStatusEdit = (e) => {
         toggleStatusEdit(false);
@@ -52,16 +59,20 @@ const TableEntry = (props) => {
         toggleStatusEdit(!editingStatus)
     }
 
+    let onAssignedToFocus = () =>
+    {
+        toggleAssignedToEdit(true);
+    }
+
     return (
         <WRow className='table-entry'>
-            <WCol size="4">
+            <WCol size="3">
                 {
                     editingDescr || description === ''
                         ? <WInput
                             className='table-input' onBlur={handleDescrEdit}
                             autoFocus={true} defaultValue={description} type='text'
                             wType="outlined" barAnimation="solid" inputClass="table-input-class"
-                            
                         />
                         : <div className="table-text"
                             onClick={onDescriptionFocus}
@@ -70,7 +81,7 @@ const TableEntry = (props) => {
                 }
             </WCol>
 
-            <WCol size="3">
+            <WCol size="2">
                 {
                     editingDate ? <input
                         className='table-input' onBlur={handleDateEdit}
@@ -95,6 +106,21 @@ const TableEntry = (props) => {
                     </select>
                         : <div onClick={onStatusFocus} className={`${completeStyle} table-text`}>
                             {status}
+                        </div>
+                }
+            </WCol>
+
+            <WCol size="2">
+                {
+                    editingAssignedTo
+                        ? <WInput
+                            className='table-input' onBlur={handleAssignedToEdit}
+                            autoFocus={true} defaultValue={assigned_to} type='text'
+                            wType="outlined" barAnimation="solid" inputClass="table-input-class"
+                        />
+                        : <div className="table-text"
+                            onClick={onAssignedToFocus}
+                        >{assigned_to}
                         </div>
                 }
             </WCol>
