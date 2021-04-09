@@ -2,7 +2,6 @@ import React                    from 'react';
 import { WButton, WRow, WCol }  from 'wt-frontend';
 
 const SidebarHeader = (props) => {    
-    console.log("tpsHasUndo: " + props.tpsHasUndo())
     
     return (
         <WRow className='sidebar-header'>
@@ -21,7 +20,7 @@ const SidebarHeader = (props) => {
                         <WButton className="sidebar-buttons undo-redo" onClick={props.undo} wType="texted" clickAnimation="ripple-light" shape="rounded" style={{display: props.tpsHasUndo() ? "inherit" : "none"}}>
                             <i className="material-icons">undo</i>
                         </WButton>
-                        <WButton className="sidebar-buttons undo-redo" onClick={props.redo} wType="texted" clickAnimation="ripple-light" shape="rounded">
+                        <WButton className="sidebar-buttons undo-redo" onClick={props.redo} wType="texted" clickAnimation="ripple-light" shape="rounded" style={{display: props.tpsHasRedo() ? "inherit" : "none"}}>
                             <i className="material-icons">redo</i>
                         </WButton>
                     </div>
