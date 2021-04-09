@@ -167,6 +167,10 @@ const Homescreen = (props) => {
 
 	const handleSetActive = (id) => {
 		const todo = todolists.find(todo => todo.id === id || todo._id === id);
+
+		// Clear all transactions when user switches lists
+		props.tps.clearAllTransactions();
+
 		setActiveList(todo);
 	};
 
