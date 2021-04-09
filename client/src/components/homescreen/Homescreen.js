@@ -142,6 +142,9 @@ const Homescreen = (props) => {
 			let _id = data.addTodolist;
 			handleSetActive(_id);
 		}
+
+		// Clear transaction stack when the user creates a new list
+		props.tps.clearAllTransactions()
 	};
 
 	const deleteList = async (_id) => {
