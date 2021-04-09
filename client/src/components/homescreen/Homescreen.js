@@ -156,6 +156,9 @@ const Homescreen = (props) => {
 		DeleteTodolist({ variables: { _id: _id }, refetchQueries: [{ query: GET_DB_TODOS }] });
 		refetch();
 		setActiveList({});
+
+		// Clear TPS after list deletion
+        tpsClear()
 	};
 
 	const updateListField = async (_id, field, value, prev) => {
@@ -251,7 +254,7 @@ const Homescreen = (props) => {
 			</WLMain>
 
 			{
-				showDelete && (<Delete deleteList={deleteList} activeid={activeList._id} setShowDelete={setShowDelete} />)
+				showDelete && (<Delete deleteList={deleteList} activeid={activeList._id} setShowDelete={setShowDelete}/>)
 			}
 
 			{
