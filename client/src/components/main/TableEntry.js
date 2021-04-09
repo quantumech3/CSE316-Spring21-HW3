@@ -40,6 +40,12 @@ const TableEntry = (props) => {
         toggleDescrEdit(!editingDescr)
     }
 
+    let onDateFocus = () =>
+    {
+        props.setAddListEnabled(false)
+        toggleDateEdit(!editingDate)
+    }
+
     return (
         <WRow className='table-entry'>
             <WCol size="4">
@@ -66,7 +72,7 @@ const TableEntry = (props) => {
                         wType="outlined" barAnimation="solid" inputClass="table-input-class"
                     />
                         : <div className="table-text"
-                            onClick={() => toggleDateEdit(!editingDate)}
+                            onClick={onDateFocus}
                         >{due_date}
                         </div>
                 }
