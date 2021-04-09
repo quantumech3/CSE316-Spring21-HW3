@@ -46,6 +46,12 @@ const TableEntry = (props) => {
         toggleDateEdit(!editingDate)
     }
 
+    let onStatusFocus = () =>
+    {
+        props.setAddListEnabled(false)
+        toggleStatusEdit(!editingStatus)
+    }
+
     return (
         <WRow className='table-entry'>
             <WCol size="4">
@@ -87,7 +93,7 @@ const TableEntry = (props) => {
                         <option value="complete">complete</option>
                         <option value="incomplete">incomplete</option>
                     </select>
-                        : <div onClick={() => toggleStatusEdit(!editingStatus)} className={`${completeStyle} table-text`}>
+                        : <div onClick={onStatusFocus} className={`${completeStyle} table-text`}>
                             {status}
                         </div>
                 }
