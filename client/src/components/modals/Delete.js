@@ -10,7 +10,7 @@ const Delete = (props) => {
     }
 
     return (
-        <div className="delete-modal">
+        <WModal visible={true}>
             <div className="modal-header" onClose={() => props.setShowDelete(false)}>
                 Delete List?
 			</div>
@@ -25,7 +25,7 @@ const Delete = (props) => {
 				</WButton>
             </div>
 
-        </div>
+        </WModal>
     );
 }
 
