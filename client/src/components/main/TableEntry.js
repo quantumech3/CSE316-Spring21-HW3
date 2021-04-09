@@ -82,7 +82,7 @@ const TableEntry = (props) => {
 
             <WCol size="3">
                 <div className='button-group'>
-                    <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, -1)} wType="texted">
+                    <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, -1)} wType="texted" style={{display: props.isTop ? "none" : "inherit"}}>
                         <i className="material-icons">expand_less</i>
                     </WButton>
                     <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, 1)} wType="texted">
