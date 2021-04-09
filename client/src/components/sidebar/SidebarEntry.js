@@ -18,6 +18,8 @@ const SidebarEntry = (props) => {
     };
 
     const entryStyle = props.id === props.activeid ? 'list-item list-item-active' : 'list-item ';
+
+    console.log(props.id + ":" + entryStyle)
     
     return (
         <WNavItem 
