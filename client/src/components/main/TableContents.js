@@ -3,27 +3,22 @@ import TableEntry   from './TableEntry';
 
 const TableContents = (props) => {
 
+    const entries = props.activeList ? props.activeList.items : null;
+
     let entriesToJsx = (entry, index) =>
     {
-        if(index === 0)
-        {
-            return <TableEntry
-                data={entry} key={entry.id}
-                deleteItem={props.deleteItem} reorderItem={props.reorderItem}
-                editItem={props.editItem} index={index}
-                isTop={true}
-            />
-        }
+        let isTop = index === 0;
+        let isBottom = entries && index === entries.length - 1
 
         return <TableEntry
                 data={entry} key={entry.id}
                 deleteItem={props.deleteItem} reorderItem={props.reorderItem}
                 editItem={props.editItem} index={index}
-                isTop={false}
+                isTop={isTop}
+                isBottom={isBottom}
             />
     }
 
-    const entries = props.activeList ? props.activeList.items : null;
     return (
         entries ? <div className=' table-entries container-primary'>
             {

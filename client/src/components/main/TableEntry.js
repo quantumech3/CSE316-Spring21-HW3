@@ -85,7 +85,7 @@ const TableEntry = (props) => {
                     <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, -1)} wType="texted" style={{display: props.isTop ? "none" : "inherit"}}>
                         <i className="material-icons">expand_less</i>
                     </WButton>
-                    <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, 1)} wType="texted">
+                    <WButton className="table-entry-buttons" onClick={() => props.reorderItem(data._id, 1)} wType="texted" style={{display: props.isBottom ? "none" : "inherit"}}>
                         <i className="material-icons">expand_more</i>
                     </WButton>
                     <WButton className="table-entry-buttons" onClick={() => props.deleteItem(data, props.index)} wType="texted">
