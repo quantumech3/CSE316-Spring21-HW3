@@ -71,6 +71,11 @@ const Homescreen = (props) => {
 		props.tps.clearAllTransactions();
 	}
 
+	const tpsHasUndo = () => 
+	{
+		return props.tps.hasTransactionToUndo();
+	}
+
 
 	// Creates a default item and passes it to the backend resolver.
 	// The return id is assigned to the item, and the item is appended
@@ -229,6 +234,7 @@ const Homescreen = (props) => {
 								handleSetActive={handleSetActive} createNewList={createNewList}
 								undo={tpsUndo} redo={tpsRedo}
 								updateListField={updateListField}
+								tpsHasUndo={tpsHasUndo}
 							/>
 							:
 							<></>
