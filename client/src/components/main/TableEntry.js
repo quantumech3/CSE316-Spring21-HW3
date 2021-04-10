@@ -32,6 +32,9 @@ const TableEntry = (props) => {
     const handleAssignedToEdit = (e) => {
         toggleAssignedToEdit(false)
         setAssigned_to(e.target.value)
+
+        // Remove this once MongoDB is integrated into the program
+        props.setAddListEnabled(true)
     }
 
     const handleStatusEdit = (e) => {
@@ -61,6 +64,7 @@ const TableEntry = (props) => {
 
     let onAssignedToFocus = () =>
     {
+        props.setAddListEnabled(false)
         toggleAssignedToEdit(true);
     }
 
