@@ -117,8 +117,9 @@ const TableEntry = (props) => {
                             className='table-input' onBlur={handleAssignedToEdit}
                             autoFocus={true} defaultValue={assigned_to} type='text'
                             wType="outlined" barAnimation="solid" inputClass="table-input-class"
+                            style={{color: status === "complete" ? "black" : "red"}}
                         />
-                        : <div className="table-text"
+                        : <div className="table-text" style={{color: status === "complete" ? "black" : "red"}}
                             onClick={onAssignedToFocus}
                         >{assigned_to}
                         </div>
